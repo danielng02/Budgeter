@@ -17,31 +17,30 @@ using System.ComponentModel;
 
 namespace Budgeter
 {
-    public class Item : INotifyPropertyChanged
+    public class Item
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        public static ObservableCollection<Item> items { get; set; } = new ObservableCollection<Item>();
+        public static Dictionary<string, Item> items = new Dictionary<string, Item>();
 
         private string name;
         public string Name
         {
             get => name;
-            set { name = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name")); }
+            set { name = value;}
         }
 
         private int price;
         public int Price
         {
             get => price;
-            set { price = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price")); }
+            set { price = value;}
         }
 
         public DateTime? dateOfPurchase;
         public DateTime? DateOfPurchase
         {
             get => dateOfPurchase;
-            set { dateOfPurchase= value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Date")); }
+            set { dateOfPurchase= value;}
         }
 
         public Item()
@@ -56,21 +55,21 @@ namespace Budgeter
 
         public static void ItemsAdd()
         {
-            items.Add(new Item
+            items.Add("Hra na PC", new Item
             {
                 Name = "Hra na PC",
                 Price = 1500,
                 DateOfPurchase = new DateTime?(DateTime.Now)
             }) ;
 
-            items.Add(new Item
+            items.Add("Cigarety", new Item
             {
                 Name = "Cigarety",
                 Price = 120,
                 DateOfPurchase = new DateTime?(DateTime.Now)
             });
 
-            items.Add(new Item
+            items.Add("Kafe",new Item
             {
                 Name = "Kafe",
                 Price = 50,

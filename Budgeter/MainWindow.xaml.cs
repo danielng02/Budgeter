@@ -25,18 +25,18 @@ namespace Budgeter
             InitializeComponent();
             Item.ItemsAdd();
             Item i = new Item();
-            listBox.DataContext = i;
+            listView.DataContext = i;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Item.items.Add(new Item(nameText.Text, priceText.Text, calendar.SelectedDate));
+            Item.items.Add(nameText.Text, new Item(nameText.Text, priceText.Text, calendar.SelectedDate));
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           // Item j = (Item)(sender as ListView).SelectedItem;
-            //DataContext = j;
+
         }
     }
 }
