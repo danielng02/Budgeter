@@ -1,18 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Budgeter
 {
-    public class Item
+    public class Item : INotifyPropertyChanged
     {
-        public static List<Item> items = new List<Item>();
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public string name;
-        public int price;
+        public static ObservableCollection<Item> items { get; set; } = new ObservableCollection<Item>();
+
+        private string name;
+        public string Name
+        {
+            get => name;
+            set { name = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name")); }
+        }
+
+        private int price;
+        public int Price
+        {
+            get => price;
+            set { price = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price")); }
+        }
+
         public DateTime? dateOfPurchase;
+        public DateTime? DateOfPurchase
+        {
+            get => dateOfPurchase;
+            set { dateOfPurchase= value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Date")); }
+        }
 
         public Item()
         { }
@@ -22,6 +52,30 @@ namespace Budgeter
             name = Name;
             price = Convert.ToInt32(Price);
             dateOfPurchase = date;
+        }
+
+        public static void ItemsAdd()
+        {
+            items.Add(new Item
+            {
+                Name = "Hra na PC",
+                Price = 1500,
+                DateOfPurchase = new DateTime?(DateTime.Now)
+            }) ;
+
+            items.Add(new Item
+            {
+                Name = "Cigarety",
+                Price = 120,
+                DateOfPurchase = new DateTime?(DateTime.Now)
+            });
+
+            items.Add(new Item
+            {
+                Name = "Kafe",
+                Price = 50,
+                DateOfPurchase = new DateTime?(DateTime.Now)
+            });
         }
     }
 }

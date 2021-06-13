@@ -14,7 +14,21 @@
             <Button Content="Reset" HorizontalAlignment="Left" Margin="689,10,0,0" VerticalAlignment="Top" Width="75"/>
             <Button Content="Add" HorizontalAlignment="Left" Margin="689,383,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
             <DatePicker x:Name="calendar" HorizontalAlignment="Left" Margin="521,372,0,0" VerticalAlignment="Top" Width="146"/>
+            <ListView HorizontalAlignment="Left" Height="165" Margin="434,183,0,0" VerticalAlignment="Top" Width="278">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+                <Label Content="{Binding Name}" Width="150" Height="35"/>
+                <Label Content="{Binding Price}" Height="35" Width="150"/>
+                <Label Content="{Binding DateOfPurchase}" Height="35" Width="150"/>
+            </ListView>
         </Grid>
-        <ScrollViewer HorizontalAlignment="Left" Height="176" Margin="67,183,0,0" VerticalAlignment="Top" Width="695"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="176" Margin="67,183,0,0" VerticalAlignment="Top" Width="300
+                      ">
+            <ListBox x:Name="listBox" SelectionChanged="listBox_SelectionChanged" ItemsSource="{Binding items}">
+            </ListBox>
+        </ScrollViewer>
     </Grid>
 </Window>
