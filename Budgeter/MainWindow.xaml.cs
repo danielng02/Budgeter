@@ -25,8 +25,8 @@ namespace Budgeter
             InitializeComponent();
             Item.ItemsAdd();
             Item i = new Item();
-
-            listView.DataContext = Item.items;
+            listbox.DataContext = Item.items;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,5 +39,6 @@ namespace Budgeter
             Item k = (Item)((sender as ListView).SelectedItem);
             DataContext = k;
         }
+
     }
 }
