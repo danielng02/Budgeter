@@ -21,10 +21,7 @@ namespace Budgeter
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-
         public static ObservableCollection<Item> items { get; set; } = new ObservableCollection<Item>();
-
-
 
         private string name;
         public string Name
