@@ -20,7 +20,7 @@ namespace Budgeter
     public class Item
     {
 
-        public static Dictionary<string, Item> items = new Dictionary<string, Item>();
+        public static List<Item> items = new List<Item>();
 
         private string name;
         public string Name
@@ -55,21 +55,21 @@ namespace Budgeter
 
         public static void ItemsAdd()
         {
-            items.Add("Hra na PC", new Item
+            items.Add(new Item
             {
                 Name = "Hra na PC",
                 Price = 1500,
                 DateOfPurchase = new DateTime?(DateTime.Now)
             }) ;
 
-            items.Add("Cigarety", new Item
+            items.Add(new Item
             {
                 Name = "Cigarety",
                 Price = 120,
                 DateOfPurchase = new DateTime?(DateTime.Now)
             });
 
-            items.Add("Kafe",new Item
+            items.Add(new Item
             {
                 Name = "Kafe",
                 Price = 50,
