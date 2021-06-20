@@ -8,22 +8,24 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="800">
-            
-            <TextBox x:Name="nameText" HorizontalAlignment="Left" Height="23" Margin="52,375,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="196"/>
-            <TextBox x:Name="priceText" HorizontalAlignment="Left" Height="23" Margin="297,375,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="189"/>
-            
-            <Label x:Name="money" Content="{Binding moneyTotal}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="104" Width="274" Margin="260,43,266,0" Foreground="LawnGreen"/>
-            
+
+            <TextBox x:Name="nameText" HorizontalAlignment="Left" Height="23" Margin="52,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" TextChanged="nameText_TextChanged"/>
+            <TextBox x:Name="priceText" HorizontalAlignment="Left" Height="23" Margin="297,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="priceText_TextChanged"/>
+
             <Button x:Name="reset" Content="Reset" HorizontalAlignment="Left" Margin="689,10,0,0" VerticalAlignment="Top" Width="75" Click="reset_Click_1"/>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="689,383,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-            
+            <Button Content="Add" HorizontalAlignment="Left" Margin="672,364,0,0" VerticalAlignment="Top" Width="101" Click="Button_Click" RenderTransformOrigin="0.504,-0.636" Height="40" FontSize="20"/>
+
             <DatePicker x:Name="calendar" HorizontalAlignment="Left" Margin="521,372,0,0" VerticalAlignment="Top" Width="146"/>
-            
-            <Label x:Name="label1" Content="{Binding Name}" Width="150" Height="35" Margin="464,189,186,226"/>
-            <Label x:Name="label2" Content="{Binding Price}" Height="35" Width="150" Margin="464,248,186,167"/>
-            <Label x:Name="label3" Content="{Binding DateOfPurchase}" Height="35" Width="150" Margin="464,298,186,117"/>
-            
-            <ListView x:Name="listbox" HorizontalAlignment="Left" Height="144" Margin="103,189,0,0" VerticalAlignment="Top" Width="291" ItemsSource="{Binding .}" SelectionChanged="listBox_SelectionChanged">
+
+            <Label x:Name="label1" Content="{Binding Name}" Margin="451,52,162,318" FontSize="35"/>
+            <Label x:Name="label2" Content="{Binding Price}" Margin="451,153,162,207" FontSize="35"/>
+            <Label x:Name="label3" Content="{Binding DateOfPurchase}" Margin="451,243,27,128" FontSize="35"/>
+
+
+            <Label x:Name="ErrorLabelName" HorizontalAlignment="Left" VerticalAlignment="Center" Width="217" Height="30" Foreground ="Red"  Content="{Binding NameError}" Visibility="{Binding NameErrorVisible}" Margin="52,345,0,75"/>
+            <Label x:Name="ErrorLabelPrice" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Height="30" Foreground ="Red"  Content="{Binding PriceError}" Visibility="{Binding PriceErrorVisible}" Margin="297,345,0,75"/>
+
+            <ListView x:Name="listbox" HorizontalAlignment="Left" Height="330" Margin="52,10,0,0" VerticalAlignment="Top" Width="381" ItemsSource="{Binding .}" SelectionChanged="listBox_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" />

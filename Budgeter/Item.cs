@@ -45,19 +45,6 @@ namespace Budgeter
             set { dateOfPurchase= value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Date")); }
         }
 
-        private static int moneyRemaining;
-        public static int MoneyRemaining
-        {
-            get => moneyRemaining;
-            set { moneyRemaining = value; }
-        }
-        private static int moneyTotal;
-        public static int MoneyTotal
-        {
-            get => moneyTotal;
-            set { moneyTotal = value; }
-        }
-
         public Item()
         { }
 
@@ -68,28 +55,5 @@ namespace Budgeter
             dateOfPurchase = date;
         }
 
-        public static void ItemsAdd()
-        {
-            items.Add(new Item
-            {
-                Name = "Hra na PC",
-                Price = 1500,
-                DateOfPurchase = new DateTime?(DateTime.Now)
-            }) ;
-
-            items.Add(new Item
-            {
-                Name = "Cigarety",
-                Price = 120,
-                DateOfPurchase = new DateTime?(DateTime.Now)
-            });
-
-            items.Add(new Item
-            {
-                Name = "Kafe",
-                Price = 50,
-                DateOfPurchase = new DateTime?(DateTime.Now)
-            });
-        }
     }
 }
