@@ -38,11 +38,24 @@ namespace Budgeter
             set { price = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price")); }
         }
 
-        public DateTime? dateOfPurchase;
+        private DateTime? dateOfPurchase;
         public DateTime? DateOfPurchase
         {
             get => dateOfPurchase;
             set { dateOfPurchase= value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Date")); }
+        }
+
+        private static int moneyRemaining;
+        public static int MoneyRemaining
+        {
+            get => moneyRemaining;
+            set { moneyRemaining = value; }
+        }
+        private static int moneyTotal;
+        public static int MoneyTotal
+        {
+            get => moneyTotal;
+            set { moneyTotal = value; }
         }
 
         public Item()

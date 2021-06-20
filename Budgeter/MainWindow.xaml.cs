@@ -24,14 +24,18 @@ namespace Budgeter
         {
             InitializeComponent();
             Item.ItemsAdd();
-            Item i = new Item();
             listbox.DataContext = Item.items;
-            
+            Item.MoneyTotal = 5000;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Item.items.Add(new Item(nameText.Text, priceText.Text, calendar.SelectedDate));
+
+            Item.MoneyRemaining -= Convert.ToInt32(priceText.Text);
+
+            if (Item.MoneyRemaining <= 0)
+                money.Foreground = Brushes.Red;
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,5 +44,10 @@ namespace Budgeter
             DataContext = k;
         }
 
+        private void reset_Click_1(object sender, RoutedEventArgs e)
+        {
+            Reset re = new Reset();
+            re.ShowDialog();
+        }
     }
 }
